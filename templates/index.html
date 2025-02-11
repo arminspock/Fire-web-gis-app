@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vancouver Fire Risk Analysis</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Fire Risk Analysis</h2>
+            <div class="filter-section">
+                <h3>Risk Score Filter</h3>
+                <div class="slider-container">
+                    <label>Min Score: <span id="minScoreValue">0</span></label>
+                    <input type="range" id="minScore" min="0" max="100" value="0">
+                    <label>Max Score: <span id="maxScoreValue">100</span></label>
+                    <input type="range" id="maxScore" min="0" max="100" value="100">
+                </div>
+                <button id="applyFilter">Apply Filter</button>
+            </div>
+            <div class="info-section">
+                <h3>Selected Area Info</h3>
+                <div id="areaInfo">
+                    <p>Click on an area to see details</p>
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
